@@ -22,6 +22,11 @@ body {
 a{
 	text-decoration: none;
 	color: #ff79c6;
+	transition: all 0.3s ease-in-out;
+}
+
+.post-url:hover {
+	color: #ffb86c;
 }
 
 nav {

@@ -1,11 +1,6 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE } from '../config';
-
 // Use Astro.glob() to fetch all posts, and then sort them by date.
-const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
+const posts = (await Astro.glob('../pages/blog/*.{md,mdx}')).sort(
 	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
 );
 ---
@@ -13,7 +8,6 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} />
 		<style>
 			ul {
 				list-style-type: none;
@@ -33,12 +27,12 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 		</style>
 	</head>
 	<body>
-		<Header />
 		<main>
+            <h3>Latest posts: </h3>
 			<section>
 				<ul>
 					{
-						posts.map((post) => (
+						posts.filter((item, idx) => idx < 10).map((post) => (
 							<li>
 								<time datetime={post.frontmatter.pubDate}>
 									{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
@@ -54,6 +48,5 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 				</ul>
 			</section>
 		</main>
-		<Footer />
 	</body>
 </html>
