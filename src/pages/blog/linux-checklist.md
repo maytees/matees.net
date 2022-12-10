@@ -3,7 +3,7 @@ layout: "../../layouts/BlogPost.astro"
 title: "Cyberpatriot Linux Checklist"
 description: "This is a very cool linux checklist that you can use for Cyberpatriot, keep in mind that it is not completed"
 pubDate: "Dec 06 2022"
-heroImage: "/penguin.png"
+heroImage: "/penguin.jpg"
 ---
 
 # Linux Checklist

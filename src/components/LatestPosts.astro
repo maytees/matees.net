@@ -24,6 +24,9 @@ const posts = (await Astro.glob('../pages/blog/*.{md,mdx}')).sort(
 			ul li a:visited {
 				color: #bd93f9;
 			}
+			hr {
+				opacity: 5%;
+			}
 		</style>
 	</head>
 	<body>
@@ -33,6 +36,7 @@ const posts = (await Astro.glob('../pages/blog/*.{md,mdx}')).sort(
 				<ul>
 					{
 						posts.filter((item, idx) => idx < 10).map((post) => (
+							<hr>
 							<li>
 								<time datetime={post.frontmatter.pubDate}>
 									{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
